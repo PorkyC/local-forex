@@ -24,5 +24,6 @@
 {"name": "Turkish lira", "symbol": "try", "rates": []},
 {"name": "UK pound sterling", "symbol": "gbp", "rates": []},
 {"name": "US dollar", "symbol": "usd", "rates": []},
-{"name": "Vietnamese dong", "symbol": "vnd", "rates": []}
+{"name": "Vietnamese dong", "symbol": "vnd", "rates": []},
+{"name": "Canadian dollar", "symbol": "cad", "rates": []}
 ]

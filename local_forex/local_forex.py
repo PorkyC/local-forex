@@ -43,7 +43,7 @@ class ForexData:
                         up_to_date = True
 
 class ForexRates(ForexData):
-    # get_rate returns the rate given a symbol on a given date
+    # get_rate returns the rate given a symbol on a given date relative to CAD
     # If a rate is not available on the given date, it will return the first available rate prior to that date 
     def get_rate(self, symbol, date=datetime.today()):
         symbol = symbol.lower()

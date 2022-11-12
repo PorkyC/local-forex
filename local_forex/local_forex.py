@@ -1,6 +1,9 @@
 import json
 from datetime import datetime, timedelta
 import requests
+import pathlib
+
+PATH = str(pathlib.Path(__file__).parent.resolve())
 
 class ForexData:
     def __init__(self):
@@ -9,11 +12,11 @@ class ForexData:
     
     # load_rates_from_file loads the data dictionary from a json file
     def load_rates_from_file(self):
-        return json.load(open("local_forex/rate_data.json", "r"))
+        return json.load(open(PATH + "/rate_data.json", "r"))
     
     # save_rates_to_file saves the data dictionary to a json file
     def save_rates_to_file(self):
-        json.dump(self.data, open("local_forex/rate_data.json", "w"), indent=4)
+        json.dump(self.data, open(PATH + "/rate_data.json", "w"), indent=4)
 
     # fetch_boc_rates returns the latest exchange rates in json format from the Bank of Canada website
     def fetch_boc_rates(self):

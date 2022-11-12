@@ -1,2 +1,3 @@
 /venv/
 .DS_Store
+/local_forex/__pycache__/

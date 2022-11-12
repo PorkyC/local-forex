@@ -51,7 +51,7 @@ class ForexRates(ForexData):
             return None
         if symbol == "cad":
             return 1
-        rate = self.data[symbol]['rates'].get([date.strftime("%Y-%m-%d")])
+        rate = self.data[symbol]['rates'].get(date.strftime("%Y-%m-%d"))
         if rate is not None:
             return float(rate)
         return self.get_rate(symbol, date - timedelta(days=1))

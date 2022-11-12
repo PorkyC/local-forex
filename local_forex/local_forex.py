@@ -2,7 +2,7 @@ import json
 from datetime import datetime, timedelta
 import requests
 
-class LocalForex:
+class ForexData:
     def __init__(self):
         self.data = self.load_rates_from_file()
         self.symbols = self.data.keys()
@@ -24,8 +24,8 @@ class LocalForex:
             return None
         return r.json()
 
-    # update_boc_rates takes the json data from the Bank of Canada website and updates the rates in the data dictionary
-    def update_boc_rates(self, data):
+    # update_from_boc_rates takes the json data from the Bank of Canada website and updates the rates in the data dictionary
+    def update_from_boc_rates(self, data):
         up_to_date = False
         i = -1
         while not up_to_date:
@@ -39,13 +39,7 @@ class LocalForex:
                     else:
                         up_to_date = True
 
-class ForexRates(LocalForex):
-    def get_name(self, symbol):
-        return self.data[symbol]['name']
-    
-    def get_label(self, symbol):
-        return self.data[symbol]['label']
-    
+class ForexRates(ForexData):    
     def check_symbol(self, symbol):
         return True if symbol in self.symbols else False
 

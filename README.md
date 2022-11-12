@@ -17,10 +17,10 @@ from datetime import datetime
 rate = local_forex.get_conversion_rate(base="USD", quote="EUR", date=datetime(2020,12,02))
 
 ```
-## Fetching and saving latest rates
+## Backfilling rates
 ```python
-latest_rates = fx.fetch_boc_rates()
-fx.update_from_boc_rates(latest_rates)
+online_rates = fx.fetch_boc_rates()
+fx.update_from_boc_rates(online_rates)
 fx.save_rates_to_file()
 ```
-* daily_run.py is included for convenience. Run Mon-Fri after 16:30EST to keep database up-to-date (e.g. Launchd on MacOS).
+* backfill.py is included for convenience. Run Mon-Fri after 16:30EST to update database daily (e.g. Launchd on MacOS).

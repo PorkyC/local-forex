@@ -1,3 +1,6 @@
 /venv/
 .DS_Store
-/local_forex/__pycache__/
+__pycache__/
+/dist/
+/build/
+*.egg-info

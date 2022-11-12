@@ -8,7 +8,7 @@ A free python package to help get you started in building and interacting with a
 ## Installation
 ```python
 pip install local-forex
-'''
+```
 
 ## Example conversion
 ```python

@@ -23,3 +23,4 @@ latest_rates = fx.fetch_boc_rates()
 fx.update_from_boc_rates(latest_rates)
 fx.save_rates_to_file()
 ```
+* daily_run.py is included for convenience. Run Mon-Fri after 16:30EST to keep database up-to-date (e.g. Launchd on MacOS).

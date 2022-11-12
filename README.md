@@ -3,7 +3,7 @@
 ## Dictionary based currency exchange rate package
 * Written in Python
 * Rates provided by Bank of Canada. Includes function for fetching and saving latest rates using BoC API
-* Offline JSON historical database reduces reliance on external API availabilility
+* Offline JSON historical database reduces reliance on external API availability
 * ~24 modern currencies supported
 
 ## Example conversion

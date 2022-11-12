@@ -51,12 +51,10 @@ class ForexRates(ForexData):
             return None
         if symbol == "cad":
             return 1
-        date_str = date.strftime("%Y-%m-%d")
-        print(date_str)
-        try:
-            return float(self.data[symbol]['rates'][date.strftime("%Y-%m-%d")])
-        except KeyError:
-            return self.get_rate(symbol, date - timedelta(days=1))
+        rate = self.data[symbol]['rates'].get([date.strftime("%Y-%m-%d")])
+        if rate is not None:
+            return float(rate)
+        return self.get_rate(symbol, date - timedelta(days=1))
     
     # get_conversion_rate returns the conversion rate between two symbols on a given date
     def get_conversion_rate(self, base, quote="CAD", date=datetime.today()):

@@ -20,20 +20,19 @@ class ForexRates(LocalForex):
         symbol = symbol.lower()
         if not self.check_symbol(symbol):
             return None
+        if symbol == "cad":
+            return 1
         date_str = date.strftime("%Y-%m-%d")
         print(date_str)
         try:
-            return self.data[symbol]['rates'][date.strftime("%Y-%m-%d")]
+            return float(self.data[symbol]['rates'][date.strftime("%Y-%m-%d")])
         except KeyError:
             return self.get_rate(symbol, date - timedelta(days=1))
     
     # get_rate returns the rate given a base/quote (quote defaults to cad) symbol pair on a given date
     # If no date is given, the most recent rate is returned used
     def get_conversion_rate(self, base, quote="CAD", date=datetime.today()):
-        if quote == "cad":
-            quote_rate = 1
-        else:
-            quote_rate = self.get_rate(quote, date)
+        quote_rate = self.get_rate(quote, date)
         base_rate = self.get_rate(base, date)
         return base_rate / quote_rate
 

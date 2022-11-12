@@ -39,10 +39,7 @@ class ForexData:
                     else:
                         up_to_date = True
 
-class ForexRates(ForexData):    
-    def check_symbol(self, symbol):
-        return True if symbol in self.symbols else False
-
+class ForexRates(ForexData):
     # get_rate returns the rate given a symbol on a given date
     # If a rate is not available on the given date, it will return the first available rate prior to that date 
     def get_rate(self, symbol, date=datetime.today()):
@@ -55,7 +52,10 @@ class ForexRates(ForexData):
         if rate is not None:
             return float(rate)
         return self.get_rate(symbol, date - timedelta(days=1))
-    
+
+    def check_symbol(self, symbol):
+        return True if symbol in self.symbols else False
+
     # get_conversion_rate returns the conversion rate between two symbols on a given date
     def get_conversion_rate(self, base, quote="CAD", date=datetime.today()):
         quote_rate = self.get_rate(quote, date)

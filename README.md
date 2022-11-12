@@ -5,6 +5,10 @@ A free python package to help get you started in building and interacting with a
 * Rates provided by Bank of Canada. Includes function for fetching and saving latest rates using BoC API
 * Offline JSON historical database reduces reliance on external API availability
 * ~24 modern currencies supported
+## Installation
+```python
+pip install local-forex
+'''
 
 ## Example conversion
 ```python

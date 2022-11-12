@@ -18,9 +18,9 @@ rate = local_forex.get_conversion_rate(base="USD", quote="EUR", date=datetime(20
 
 ```
 ## Backfilling rates
+* backfill.py is included for convenience. Run Mon-Fri after 16:30EST to update database daily (e.g. Launchd on MacOS).
 ```python
 online_rates = fx.fetch_boc_rates()
 fx.update_from_boc_rates(online_rates)
 fx.save_rates_to_file()
 ```
-* backfill.py is included for convenience. Run Mon-Fri after 16:30EST to update database daily (e.g. Launchd on MacOS).

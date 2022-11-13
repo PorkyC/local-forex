@@ -19,3 +19,6 @@ classifiers = [
 
 [project.urls]
 "Homepage" = "https://github.com/porkyc/local-forex"
+
+[tool.setuptools.package-data]
+local_forex = ["*.json"]

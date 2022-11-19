@@ -8,6 +8,8 @@ A free python package to help get started in building and interacting with a loc
 ## Installation
 ```shell
 pip install local-forex
+cd local-forex
+pip install -r requirements.txt
 ```
 
 ## Example conversion

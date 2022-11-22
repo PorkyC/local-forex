@@ -38,7 +38,7 @@ class ForexData:
                     symbol = key.lower()[2:5]
                     if self.data[symbol]['rates'].get(date) is None:
                         self.data[symbol]['rates'][date] = str(value['v'])
-                        i += 1
+                        i -= 1
                     else:
                         up_to_date = True
 

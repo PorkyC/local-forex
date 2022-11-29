@@ -47,7 +47,7 @@ class ForexRates(ForexData):
     # If a rate is not available on the given date, it will return the first available rate prior to that date 
     def get_rate(self, symbol, date=datetime.today()):
         if date < datetime(2017, 1, 3, tzinfo=date.tzinfo):
-            date = datetime.today()
+            date = datetime(2017, 1, 3, tzinfo=date.tzinfo)
         symbol = symbol.lower()
         if not self.check_symbol(symbol):
             return None

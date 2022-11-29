@@ -46,13 +46,15 @@ class ForexRates(ForexData):
     # get_rate returns the rate given a symbol on a given date relative to CAD
     # If a rate is not available on the given date, it will return the first available rate prior to that date 
     def get_rate(self, symbol, date=datetime.today()):
+        if date < datetime.strptime("2017-01-03", "%Y-%m-%d"):
+            date = datetime.today()
         symbol = symbol.lower()
         if not self.check_symbol(symbol):
             return None
         if symbol == "cad":
             return 1
         rate = self.data[symbol]['rates'].get(date.strftime("%Y-%m-%d"))
-        if rate is not None:
+        if rate:
             return float(rate)
         return self.get_rate(symbol, date - timedelta(days=1))
 

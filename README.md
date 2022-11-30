@@ -3,7 +3,7 @@ A free python package to help get started in building and interacting with a loc
 
 ## Dictionary based currency exchange rate package
 * Rates provided by Bank of Canada. Includes function for fetching and saving latest rates using BoC API
-* Offline JSON historical database reduces reliance on external API availability
+* Offline JSON historical database reduces reliance on external API availability (records to 2017-01-03, TODO: extend historical records)
 * ~24 modern currencies supported
 ## Installation
 ```shell

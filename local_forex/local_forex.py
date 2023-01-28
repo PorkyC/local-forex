@@ -1,19 +1,21 @@
 import json
-from datetime import datetime, timedelta
-import requests
 import pathlib
+from datetime import datetime, timedelta
+
+import requests
 
 PATH = str(pathlib.Path(__file__).parent.resolve())
+
 
 class ForexData:
     def __init__(self):
         self.data = self.load_rates_from_file()
         self.symbols = self.data.keys()
-    
+
     # load_rates_from_file loads the data dictionary from a json file
     def load_rates_from_file(self):
         return json.load(open(PATH + "/rate_data.json", "r"))
-    
+
     # save_rates_to_file saves the data dictionary to a json file
     def save_rates_to_file(self):
         json.dump(self.data, open(PATH + "/rate_data.json", "w"), indent=4)
@@ -38,13 +40,14 @@ class ForexData:
                     symbol = key.lower()[2:5]
                     if self.data[symbol]['rates'].get(date) is None:
                         self.data[symbol]['rates'][date] = str(value['v'])
-                        i -= 1
                     else:
                         up_to_date = True
+            i -= 1
+
 
 class ForexRates(ForexData):
     # get_rate returns the rate given a symbol on a given date relative to CAD
-    # If a rate is not available on the given date, it will return the first available rate prior to that date 
+    # If a rate is not available on the given date, it will return the first available rate prior to that date
     def get_rate(self, symbol, date=datetime.today()):
         if date < datetime(2017, 1, 3, tzinfo=date.tzinfo):
             date = datetime(2017, 1, 3, tzinfo=date.tzinfo)

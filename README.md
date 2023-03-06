@@ -20,7 +20,7 @@ fx = local_forex.ForexRates()
 
 # Example conversion rate query for USD/EUR on December 02, 2020
 from datetime import datetime
-rate = local_forex.get_conversion_rate(base="USD", quote="EUR", date=datetime(2020,12,02))
+rate = fx.get_conversion_rate(base="USD", quote="EUR", date=datetime(2020,12,02))
 
 ```
 ## Backfilling rates

@@ -49,6 +49,7 @@ class ForexRates(ForexData):
     # get_rate returns the rate given a symbol on a given date relative to CAD
     # If a rate is not available on the given date, it will return the first available rate prior to that date
     def get_rate(self, symbol, date=datetime.today()):
+        # Rate data only extends to 2017-01-03
         if date < datetime(2017, 1, 3, tzinfo=date.tzinfo):
             date = datetime(2017, 1, 3, tzinfo=date.tzinfo)
         symbol = symbol.lower()
